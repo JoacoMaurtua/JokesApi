@@ -1,2 +1,26 @@
 ###GET JOKES
 GET http://localhost:8000/api/jokes
+
+###POST CREATE JOKE
+POST http://localhost:8000/api/joke/new
+Content-Type: application/json
+
+
+{
+  "setUp":"Soy un tipo saludable. +¿Te gusta comer bien?",
+  "punchLine":"No, pero siempre me saludan"
+}
+
+###GET SINGLE JOKE
+GET http://localhost:8000/api/joke/61305b838088633f4d8cb545
+
+
+###GET UPDATE JOKE
+PUT http://localhost:8000/api/joke/update/61305ef574ac8062dd40077d
+Content-Type: application/json
+
+
+{
+  "setUp":"¿Cómo se dice no en Sudáfrica? ",
+  "punchLine":"Mopongo"
+}

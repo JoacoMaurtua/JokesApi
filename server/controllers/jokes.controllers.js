@@ -12,17 +12,35 @@ const findAllJokes = (req,res) =>{
         })
 };
 
-const findSingleUser = (req,res) =>{
+//devolver una sola broma:
+const findSingleJoke = (req,res) =>{
     Joke.findOne({_id:req.params.id})
-    .then(result => res.json({data:result}))
+        .then(result => res.json({data:result}))
         .catch(error=>{
           res.json({error:error, message:'Joke not found'})
           res.sendStatus(404)
         })
 };
 
+//crear una broma:
+const createJoke = (req,res) =>{
+  Joke.create(req.body)
+      .then(result => res.json({data:result}))
+      .catch(error=>{
+        res.json({error:error, message:'Could not create a new joke'})
+        res.sendStatus(500)
+      })
+};
+
+//actualizar una broma
+const updateJoke = (req,res) =>{
+  Joke.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})
+      .then(result => res.json({data:result}))
+      .catch(error=>{
+        res.json({error:error, message:'Could not update a new joke'})
+        res.sendStatus(500)
+      })
+}
 
 
-
-
-module.exports = {findAllJokes,findSingleUser}; //exportar todas las funcionalidades
+module.exports = {findAllJokes,findSingleJoke,createJoke,updateJoke}; //exportar todas las funcionalidades
