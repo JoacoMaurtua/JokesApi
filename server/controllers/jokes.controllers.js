@@ -12,11 +12,17 @@ const findAllJokes = (req,res) =>{
         })
 };
 
+const findSingleUser = (req,res) =>{
+    Joke.findOne({_id:req.params.id})
+    .then(result => res.json({data:result}))
+        .catch(error=>{
+          res.json({error:error, message:'Joke not found'})
+          res.sendStatus(404)
+        })
+};
 
 
 
 
 
-
-
-module.exports = {findAllJokes}; //exportar todas las funcionalidades
+module.exports = {findAllJokes,findSingleUser}; //exportar todas las funcionalidades

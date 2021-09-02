@@ -4,10 +4,13 @@ const express = require('express');
 
 const router = express();
 
-const {findAllJokes} = require('../controllers/jokes.controllers');
+const {findAllJokes,findSingleUser} = require('../controllers/jokes.controllers');
 
-//ruta para encontrar a todos los usuarios:
+//ruta para encontrar a todas las bromas:
 router.get('/jokes',findAllJokes);
+
+//ruta para encontrar una sola broma:
+router.get('/joke/:id',findSingleUser);
 
 
 module.exports = router;
