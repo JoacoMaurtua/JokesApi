@@ -12,10 +12,8 @@ app.use(express.urlencoded({extended:true}));
 const connectDataBase = require('./config/mongoDB.config');
 connectDataBase();
 
-
-
-
-
+//rutas:
+app.use('/api',require('./routes/jokes.routes'));
 
 
 

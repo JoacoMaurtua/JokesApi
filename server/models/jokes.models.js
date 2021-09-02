@@ -2,20 +2,20 @@
 
 const mongoose = require('mongoose');
 
-const jokeShema = new mongoose.Schema({
+const jokeSchema = new mongoose.Schema({
   setUp:{
-    type:String,
-    required:[true,'Come on, setup required!']
+    type: String,
+    required:[true,'COME ON, SETUP REQUIRED!']
   },
 
   punchLine:{
-    type:String,
+    type: String,
     required:[true,'Thats not funny, punchline required!']
   }
 
 },{timestamps:true});
 
-const Joke = mongoose.model('Jokes',jokeShema);
+const Joke = mongoose.model('Jokes',jokeSchema);
 
 module.exports = Joke;
 
