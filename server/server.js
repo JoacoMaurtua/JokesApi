@@ -8,7 +8,9 @@ const PORT = 8000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-
+//para la conexion con la base de datos:
+const connectDataBase = require('./config/mongoDB.config');
+connectDataBase();
 
 
 
